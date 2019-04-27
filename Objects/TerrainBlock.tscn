@@ -5,13 +5,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="TerrainBlock" type="KinematicBody2D"]
-editor/display_folded = true
-position = Vector2( 300, 540 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 2.8, 2.8 )
+scale = Vector2( 2.5, 3 )
 shape = SubResource( 1 )
 

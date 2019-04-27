@@ -14,21 +14,54 @@ script = ExtResource( 1 )
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 offset = Vector2( 960, 540 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PlayerBlock" parent="." instance=ExtResource( 3 )]
 position = Vector2( 180, 540 )
 rotation = 1.5708
 
-[node name="Bidivisor" parent="." instance=ExtResource( 4 )]
+[node name="PlayerBlock2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 660, 540 )
+rotation = -1.5708
+
+[node name="LevelBlocks" type="Node2D" parent="."]
+
+[node name="Bidivisor" parent="LevelBlocks" instance=ExtResource( 4 )]
 position = Vector2( 900, 540 )
-scale = Vector2( 2, 2 )
+rotation = -1.5708
 
-[node name="Bidivisor2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1800, 240 )
-rotation = -1.57079
-scale = Vector2( 1.4, 1.4 )
+[node name="Bidivisor3" parent="LevelBlocks" instance=ExtResource( 4 )]
+position = Vector2( 180, 1020 )
 
-[node name="TerrainBlock3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 900, 420 )
-scale = Vector2( 2, 2 )
+[node name="Bidivisor2" parent="LevelBlocks" instance=ExtResource( 4 )]
+position = Vector2( 1740, 180 )
+rotation = -2.35619
+scale = Vector2( 0.7, 0.7 )
+
+[node name="LevelBounds" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="TerrainBlock3" parent="LevelBounds" instance=ExtResource( 5 )]
+position = Vector2( 945, 540 )
+scale = Vector2( 0.5, 18 )
+
+[node name="TerrainBlock4" parent="LevelBounds" instance=ExtResource( 5 )]
+position = Vector2( -15, 540 )
+scale = Vector2( 0.5, 18 )
+
+[node name="TerrainBlock5" parent="LevelBounds" instance=ExtResource( 5 )]
+position = Vector2( 1935, 540 )
+scale = Vector2( 0.5, 18 )
+
+[node name="TerrainBlock6" parent="LevelBounds" instance=ExtResource( 5 )]
+position = Vector2( 960, -15 )
+rotation = 1.5708
+scale = Vector2( 0.5, 33 )
+
+[node name="TerrainBlock7" parent="LevelBounds" instance=ExtResource( 5 )]
+position = Vector2( 960, 1095 )
+rotation = 1.5708
+scale = Vector2( 0.5, 33 )
 

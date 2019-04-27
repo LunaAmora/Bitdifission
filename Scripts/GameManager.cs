@@ -10,8 +10,9 @@ public static class GameManager
         PlayerBlock[] newBlocks = new PlayerBlock[2];
         for(int i = 0; i < 2; i++){
             newBlocks[i] = (PlayerBlock)blockScene.Instance();
-            b.GetTree().GetRoot().AddChild(newBlocks[i]);
-            newBlocks[i].Set("rotation_degrees", p.GetRotationDegrees()+ b.GetRotationDegrees() + 90*i);
+            newBlocks[i].duplicating = 10;
+            b.GetTree().GetRoot().GetChild(0).AddChild(newBlocks[i]);
+            newBlocks[i].Set("rotation_degrees", -b.GetRotationDegrees() - 45 + 90*i);
             newBlocks[i].GlobalPosition = pos;
             newBlocks[i].jumpIndex = p.jumpIndex == 0 ? 1 : 0;
             newBlocks[i].MoveLocalY(-newBlocks[i].jump[(newBlocks[i].jumpIndex)]);

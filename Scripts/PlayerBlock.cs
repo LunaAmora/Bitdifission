@@ -6,10 +6,8 @@ public class PlayerBlock : KinematicBody2D
 	[Export] public int[] jump = new int[]{120, 85};
 	public int jumpIndex = 0;
 	Vector2 velocity = new Vector2();
-	public override void _Ready()
-    {
-
-    }
+	
+	public int duplicating = 0;
 	public bool GetInput()
 		{
 			velocity = new Vector2();
@@ -35,8 +33,9 @@ public class PlayerBlock : KinematicBody2D
 			velocity *= jump[jumpIndex];
 			return true;
 		}
-		public override void _Process(float delta)
+		public override void _PhysicsProcess(float delta)
 		{
+			if (duplicating > 0) duplicating -= 1;
 			if (Input.IsActionJustPressed("ui_cancel")){
 				Set("rotation_degrees", GetRotationDegrees()+ 90);
 			}
@@ -48,6 +47,6 @@ public class PlayerBlock : KinematicBody2D
 		}
 
 		public void jumpTile(){
-			MoveAndCollide(velocity.Rotate(GetRotation()));
+			KinematicCollision2D a = MoveAndCollide(velocity.Rotate(GetRotation()));
 		}
 }
