@@ -8,6 +8,11 @@ public class PlayerBlock : KinematicBody2D
 	Vector2 velocity = new Vector2();
 	
 	public int duplicating = 0;
+	public bool active = true;
+	public override void _Ready()
+    {
+        ((GameScene)GetTree().GetRoot().GetChild(0)).PlayerNumber.Add(this);
+    }
 	public bool GetInput()
 		{
 			velocity = new Vector2();
@@ -35,13 +40,13 @@ public class PlayerBlock : KinematicBody2D
 		}
 		public override void _PhysicsProcess(float delta)
 		{
-			if (duplicating > 0) duplicating -= 1;
-			if (Input.IsActionJustPressed("ui_cancel")){
-				Set("rotation_degrees", GetRotationDegrees()+ 90);
-			}
-			if (GetInput()){
-				if (!TestMove(Transform, velocity.Rotate(GetRotation()))){
-					jumpTile();
+			if (active){
+				if (duplicating > 0) duplicating -= 1;
+				if (GetInput()){
+					if (!TestMove(Transform, velocity.Rotate(GetRotation()))){
+						duplicating = 5;
+						jumpTile();
+					}
 				}
 			}
 		}

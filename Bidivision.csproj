@@ -50,11 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Activator.cs" />
     <Compile Include="Scripts\Bidivisor.cs" />
     <Compile Include="Scripts\FusionDetector.cs" />
     <Compile Include="Scripts\GameManager.cs" />
     <Compile Include="Scripts\GameScene.cs" />
     <Compile Include="Scripts\PlayerBlock.cs" />
+    <Compile Include="Scripts\Terminal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

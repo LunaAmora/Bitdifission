@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/GameScene.cs" type="Script" id=1]
 [ext_resource path="res://Textures/Grade.png" type="Texture" id=2]
-[ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Bidivisor.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Terminal.cs" type="Script" id=3]
+[ext_resource path="res://Textures/blue_block.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Bidivisor.cs" type="Script" id=5]
+[ext_resource path="res://Textures/red_arrow.png" type="Texture" id=6]
+[ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Textures/yellow_block.png" type="Texture" id=8]
+[ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="GameScene" type="Control"]
 anchor_right = 1.0
@@ -18,49 +28,85 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PlayerBlock" parent="." instance=ExtResource( 3 )]
-position = Vector2( 180, 540 )
+[node name="Level2" type="Node2D" parent="."]
+
+[node name="LevelBlocks" type="Node2D" parent="Level2"]
+
+[node name="Terminal2" type="Area2D" parent="Level2/LevelBlocks"]
+editor/display_folded = true
+position = Vector2( 1800, 540 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Level2/LevelBlocks/Terminal2"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/LevelBlocks/Terminal2"]
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 1 )
+
+[node name="Bidivisor" type="Area2D" parent="Level2/LevelBlocks"]
+editor/display_folded = true
+position = Vector2( 420, 1020 )
+script = ExtResource( 5 )
+hidden = true
+
+[node name="Sprite" type="Sprite" parent="Level2/LevelBlocks/Bidivisor"]
 rotation = 1.5708
+texture = ExtResource( 6 )
 
-[node name="PlayerBlock2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 660, 540 )
-rotation = -1.5708
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/LevelBlocks/Bidivisor"]
+position = Vector2( 0, -12 )
+rotation = 0.785398
+scale = Vector2( 3, 3 )
+shape = SubResource( 2 )
 
-[node name="LevelBlocks" type="Node2D" parent="."]
+[node name="TerrainBlock" parent="Level2/LevelBlocks/Bidivisor" instance=ExtResource( 7 )]
+position = Vector2( -54, 30 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.2 )
 
-[node name="Bidivisor" parent="LevelBlocks" instance=ExtResource( 4 )]
-position = Vector2( 900, 540 )
-rotation = -1.5708
+[node name="TerrainBlock2" parent="Level2/LevelBlocks/Bidivisor" instance=ExtResource( 7 )]
+position = Vector2( 54, 30 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.2 )
 
-[node name="Bidivisor3" parent="LevelBlocks" instance=ExtResource( 4 )]
-position = Vector2( 180, 1020 )
+[node name="Activator" type="Area2D" parent="Level2/LevelBlocks"]
 
-[node name="Bidivisor2" parent="LevelBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1740, 180 )
-rotation = -2.35619
-scale = Vector2( 0.7, 0.7 )
+[node name="Sprite" type="Sprite" parent="Level2/LevelBlocks/Activator"]
+position = Vector2( 420, 60 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/LevelBlocks/Activator"]
+shape = SubResource( 3 )
+
+[node name="PlayerBlock" parent="Level2" instance=ExtResource( 9 )]
+position = Vector2( 420, 660 )
+rotation = 1.5708
 
 [node name="LevelBounds" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="TerrainBlock3" parent="LevelBounds" instance=ExtResource( 5 )]
+[node name="TerrainBlock3" parent="LevelBounds" instance=ExtResource( 7 )]
 position = Vector2( 945, 540 )
 scale = Vector2( 0.5, 18 )
 
-[node name="TerrainBlock4" parent="LevelBounds" instance=ExtResource( 5 )]
+[node name="TerrainBlock4" parent="LevelBounds" instance=ExtResource( 7 )]
 position = Vector2( -15, 540 )
 scale = Vector2( 0.5, 18 )
 
-[node name="TerrainBlock5" parent="LevelBounds" instance=ExtResource( 5 )]
+[node name="TerrainBlock5" parent="LevelBounds" instance=ExtResource( 7 )]
 position = Vector2( 1935, 540 )
 scale = Vector2( 0.5, 18 )
 
-[node name="TerrainBlock6" parent="LevelBounds" instance=ExtResource( 5 )]
+[node name="TerrainBlock6" parent="LevelBounds" instance=ExtResource( 7 )]
 position = Vector2( 960, -15 )
 rotation = 1.5708
 scale = Vector2( 0.5, 33 )
 
-[node name="TerrainBlock7" parent="LevelBounds" instance=ExtResource( 5 )]
+[node name="TerrainBlock7" parent="LevelBounds" instance=ExtResource( 7 )]
 position = Vector2( 960, 1095 )
 rotation = 1.5708
 scale = Vector2( 0.5, 33 )
