@@ -1,21 +1,20 @@
 using Godot;
 using System;
 
-public class GameManager : Control
+public static class GameManager
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-        
+    public static void SplitBlock (this PlayerBlock p, Bidivisor b){
+        Vector2 pos = p.GetGlobalPosition();
+        pos.x = pos.x * -1 + 1920;
+        PackedScene blockScene = (PackedScene)ResourceLoader.Load("res://Objects/PlayerBlock.tscn");
+        PlayerBlock[] newBlocks = new PlayerBlock[2];
+        for(int i = 0; i < 2; i++){
+            newBlocks[i] = (PlayerBlock)blockScene.Instance();
+            p.GetOwner().AddChild(newBlocks[i]);
+            newBlocks[i].Set("rotation_degrees", p.GetRotationDegrees()+ b.GetRotationDegrees() + 90*i);
+            newBlocks[i].GlobalPosition = pos;
+            newBlocks[i].MoveLocalY(128);
+        }
+        p.QueueFree();
     }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }

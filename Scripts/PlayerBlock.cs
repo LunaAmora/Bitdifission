@@ -4,7 +4,8 @@ using System;
 public class PlayerBlock : KinematicBody2D
 {
 	Vector2 velocity = new Vector2();
-	public void GetInput()
+	Vector2 last_direction = new Vector2();
+	public bool GetInput()
 		{
 			velocity = new Vector2();
 			if (Input.IsActionJustPressed("ui_right"))
@@ -23,15 +24,21 @@ public class PlayerBlock : KinematicBody2D
 			{
 				velocity.y -= 1;
 			}
+			else {
+				return false;
+			}
+			last_direction = velocity;
 			velocity *= 128;
+			return true;
 		}
 		public override void _Process(float delta)
 		{
-			GetInput();
-			if(Input.IsActionJustPressed("ui_accept")){
-				Set("rotation_degrees", GetRotationDegrees()+ 90); 
+			if (Input.IsActionJustPressed("ui_cancel")){
+				Set("rotation_degrees", GetRotationDegrees()+ 90);
 			}
-			MoveLocalX(velocity.x);
-			MoveLocalY(velocity.y);
+			if (GetInput()){
+				MoveLocalX(velocity.x);
+				MoveLocalY(velocity.y);	
+			}
 		}
 }
