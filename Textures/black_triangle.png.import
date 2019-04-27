@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red_block.png-bef0631d30b6af42e8e7a00dcdcc185b.stex"
+path="res://.import/black_triangle.png-a60796394941f684d54a5c806ed772d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://red_block.png"
-dest_files=[ "res://.import/red_block.png-bef0631d30b6af42e8e7a00dcdcc185b.stex" ]
+source_file="res://Textures/black_triangle.png"
+dest_files=[ "res://.import/black_triangle.png-a60796394941f684d54a5c806ed772d7.stex" ]
 
 [params]
 

@@ -1,21 +1,91 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Objects/Terminal.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/Bidivisor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Activator.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Bidivisor.cs" type="Script" id=2]
+[ext_resource path="res://Textures/red_arrow.png" type="Texture" id=3]
+[ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Terminal.cs" type="Script" id=5]
+[ext_resource path="res://Textures/blue_block.png" type="Texture" id=6]
+[ext_resource path="res://Objects/SolidTriangle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Level2" type="Node2D"]
 
 [node name="LevelBlocks" type="Node2D" parent="."]
 
-[node name="Terminal2" parent="LevelBlocks" instance=ExtResource( 1 )]
-position = Vector2( 1800, 540 )
+[node name="Activator" parent="LevelBlocks" instance=ExtResource( 1 )]
+position = Vector2( 420, 180 )
 
-[node name="Bidivisor" parent="LevelBlocks" instance=ExtResource( 2 )]
-position = Vector2( 900, 540 )
-rotation = -1.5708
+[node name="Bidivisor" type="Area2D" parent="LevelBlocks"]
+editor/display_folded = true
+position = Vector2( 420, 1020 )
+script = ExtResource( 2 )
+active = false
 
-[node name="PlayerBlock" parent="." instance=ExtResource( 3 )]
-position = Vector2( 180, 540 )
+[node name="Sprite" type="Sprite" parent="LevelBlocks/Bidivisor"]
 rotation = 1.5708
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBlocks/Bidivisor"]
+position = Vector2( 0, -12 )
+rotation = 0.785398
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="TerrainBlock" parent="LevelBlocks/Bidivisor" instance=ExtResource( 4 )]
+position = Vector2( -54, 30 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.2 )
+
+[node name="TerrainBlock2" parent="LevelBlocks/Bidivisor" instance=ExtResource( 4 )]
+position = Vector2( 54, 30 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.2 )
+
+[node name="Terminal2" type="Area2D" parent="LevelBlocks"]
+editor/display_folded = true
+position = Vector2( 1680, 240 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LevelBlocks/Terminal2"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBlocks/Terminal2"]
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+
+[node name="Terminal3" type="Area2D" parent="LevelBlocks"]
+editor/display_folded = true
+position = Vector2( 1200, 240 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LevelBlocks/Terminal3"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBlocks/Terminal3"]
+scale = Vector2( 2.5, 2.5 )
+shape = SubResource( 2 )
+
+[node name="SolidTriangle" parent="LevelBlocks" instance=ExtResource( 7 )]
+position = Vector2( 960, 600 )
+rotation = -2.35619
+scale = Vector2( 9.9, 9.9 )
+
+[node name="SolidTriangle2" parent="LevelBlocks" instance=ExtResource( 7 )]
+position = Vector2( 1920, 600 )
+rotation = 0.785398
+scale = Vector2( 7.05, 7.05 )
+
+[node name="PlayerBlock" parent="." instance=ExtResource( 8 )]
+position = Vector2( 420, 660 )
 
