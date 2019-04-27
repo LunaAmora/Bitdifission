@@ -17,6 +17,6 @@ __meta__ = {
 }
 
 [node name="BlockCollision" type="CollisionShape2D" parent="."]
-scale = Vector2( 5, 5 )
+scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 

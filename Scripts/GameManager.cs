@@ -10,11 +10,19 @@ public static class GameManager
         PlayerBlock[] newBlocks = new PlayerBlock[2];
         for(int i = 0; i < 2; i++){
             newBlocks[i] = (PlayerBlock)blockScene.Instance();
-            p.GetOwner().AddChild(newBlocks[i]);
+            b.GetTree().GetRoot().AddChild(newBlocks[i]);
             newBlocks[i].Set("rotation_degrees", p.GetRotationDegrees()+ b.GetRotationDegrees() + 90*i);
             newBlocks[i].GlobalPosition = pos;
-            newBlocks[i].MoveLocalY(128);
+            newBlocks[i].jumpIndex = p.jumpIndex == 0 ? 1 : 0;
+            newBlocks[i].MoveLocalY(-newBlocks[i].jump[(newBlocks[i].jumpIndex)]);
         }
         p.QueueFree();
+    }
+    public static Vector2 Rotate(this Vector2 v, double degrees)
+    {
+        return new Vector2(
+            (float)(v.x * Math.Cos(degrees) - v.y * Math.Sin(degrees)),
+            (float)(v.x * Math.Sin(degrees) + v.y * Math.Cos(degrees))
+        );
     }
 }

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/GameScene.cs" type="Script" id=1]
-[ext_resource path="res://Textures/background.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Grade.png" type="Texture" id=2]
 [ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bidivisor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=5]
 
 [node name="GameScene" type="Control"]
 anchor_right = 1.0
@@ -15,8 +16,19 @@ texture = ExtResource( 2 )
 offset = Vector2( 960, 540 )
 
 [node name="PlayerBlock" parent="." instance=ExtResource( 3 )]
-position = Vector2( 192, 540 )
+position = Vector2( 180, 540 )
 rotation = 1.5708
 
 [node name="Bidivisor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 900, 540 )
+scale = Vector2( 2, 2 )
+
+[node name="Bidivisor2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1800, 240 )
+rotation = -1.57079
+scale = Vector2( 1.4, 1.4 )
+
+[node name="TerrainBlock3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 900, 420 )
+scale = Vector2( 2, 2 )
 

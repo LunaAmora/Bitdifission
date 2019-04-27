@@ -3,8 +3,13 @@ using System;
 
 public class PlayerBlock : KinematicBody2D
 {
+	[Export] public int[] jump = new int[]{120, 85};
+	public int jumpIndex = 0;
 	Vector2 velocity = new Vector2();
-	Vector2 last_direction = new Vector2();
+	public override void _Ready()
+    {
+
+    }
 	public bool GetInput()
 		{
 			velocity = new Vector2();
@@ -27,8 +32,7 @@ public class PlayerBlock : KinematicBody2D
 			else {
 				return false;
 			}
-			last_direction = velocity;
-			velocity *= 128;
+			velocity *= jump[jumpIndex];
 			return true;
 		}
 		public override void _Process(float delta)
@@ -37,8 +41,13 @@ public class PlayerBlock : KinematicBody2D
 				Set("rotation_degrees", GetRotationDegrees()+ 90);
 			}
 			if (GetInput()){
-				MoveLocalX(velocity.x);
-				MoveLocalY(velocity.y);	
+				if (!TestMove(Transform, velocity.Rotate(GetRotation()))){
+					jumpTile();
+				}
 			}
+		}
+
+		public void jumpTile(){
+			MoveAndCollide(velocity.Rotate(GetRotation()));
 		}
 }
