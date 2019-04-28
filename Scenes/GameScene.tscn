@@ -17,13 +17,12 @@ __meta__ = {
 }
 
 [node name="LevelBounds" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="TerrainBlock3" parent="LevelBounds" instance=ExtResource( 3 )]
-position = Vector2( 945, 540 )
+position = Vector2( 960, 540 )
 scale = Vector2( 0.5, 18 )
 
 [node name="TerrainBlock4" parent="LevelBounds" instance=ExtResource( 3 )]

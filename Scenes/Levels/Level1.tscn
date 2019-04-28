@@ -10,39 +10,46 @@
 [node name="LevelBlocks" type="Node2D" parent="."]
 
 [node name="Terminal" parent="LevelBlocks" instance=ExtResource( 1 )]
+position = Vector2( 1380, 180 )
+rotation = -0.785398
+scale = Vector2( 0.7, 0.7 )
 
 [node name="Terminal2" parent="LevelBlocks" instance=ExtResource( 1 )]
-position = Vector2( 1500, 1020 )
+position = Vector2( 1380, 900 )
+rotation = -2.35619
+scale = Vector2( 0.7, 0.7 )
 
 [node name="Bidivisor" parent="LevelBlocks" instance=ExtResource( 2 )]
 position = Vector2( 900, 540 )
 rotation = -1.5708
 active = true
 
-[node name="SolidBlock" parent="LevelBlocks" instance=ExtResource( 3 )]
+[node name="Walls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="SolidBlock" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1860, 540 )
 rotation = -0.785397
 scale = Vector2( 15.55, 15.55 )
 
-[node name="SolidBlock4" parent="LevelBlocks" instance=ExtResource( 3 )]
+[node name="SolidBlock4" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 960, -360 )
 rotation = -0.785397
 scale = Vector2( 15.55, 15.55 )
 
-[node name="SolidBlock5" parent="LevelBlocks" instance=ExtResource( 3 )]
+[node name="SolidBlock5" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 960, 1440 )
 rotation = -0.785397
 scale = Vector2( 15.55, 15.55 )
 
-[node name="SolidBlock2" parent="LevelBlocks" instance=ExtResource( 3 )]
+[node name="SolidBlock2" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 480, 180 )
 scale = Vector2( 16, 6 )
 
-[node name="SolidBlock3" parent="LevelBlocks" instance=ExtResource( 3 )]
+[node name="SolidBlock3" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 480, 900 )
 scale = Vector2( 16, 6 )
 
 [node name="PlayerBlock" parent="." instance=ExtResource( 4 )]
 position = Vector2( 180, 540 )
 rotation = 1.5708
-

@@ -12,6 +12,7 @@
 
 [node name="Activator" parent="LevelBlocks" instance=ExtResource( 1 )]
 position = Vector2( 420, 540 )
+rotation = -1.5708
 
 [node name="Door" parent="LevelBlocks" instance=ExtResource( 2 )]
 position = Vector2( 720, 536 )
@@ -19,6 +20,8 @@ moveable = false
 velocity = 1.0
 
 [node name="Terminal" parent="LevelBlocks" instance=ExtResource( 3 )]
+position = Vector2( 1440, 120 )
+rotation = -2.35619
 
 [node name="Bidivisor" parent="LevelBlocks" instance=ExtResource( 4 )]
 position = Vector2( 900, 540 )
@@ -28,4 +31,3 @@ active = true
 [node name="PlayerBlock" parent="." instance=ExtResource( 5 )]
 position = Vector2( 180, 540 )
 rotation = 1.5708
-

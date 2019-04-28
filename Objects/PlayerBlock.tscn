@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/PlayerBlock.cs" type="Script" id=1]
-[ext_resource path="res://Textures/player_block.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Player.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/FusionDetector.cs" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -18,6 +18,7 @@ scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
 [node name="BlockSpr" type="Sprite" parent="."]
+scale = Vector2( 0.195, 0.195 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -27,6 +28,6 @@ __meta__ = {
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FusionDetector"]
+visible = false
 scale = Vector2( 2.9, 2.9 )
 shape = SubResource( 2 )
-
