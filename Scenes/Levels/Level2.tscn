@@ -24,7 +24,6 @@ position = Vector2( 420, 180 )
 editor/display_folded = true
 position = Vector2( 420, 1020 )
 script = ExtResource( 2 )
-active = false
 
 [node name="Sprite" type="Sprite" parent="LevelBlocks/Bidivisor"]
 rotation = 1.5708

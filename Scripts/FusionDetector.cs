@@ -8,6 +8,7 @@ public class FusionDetector : Area2D
                 if (body.HasMethod("GetInput")){
                 if  (body != GetParent()){
                     if ((!(((PlayerBlock)body).duplicating > 0) && !(((PlayerBlock)GetParent()).duplicating > 0))){
+                        GD.Print(((GameScene)GetTree().GetRoot().GetChild(0)).PlayerNumber.Count);
                         GetTree().ReloadCurrentScene();
                         return;
                     }

@@ -1,9 +1,8 @@
 using Godot;
 using System;
 
-public class Bidivisor : Area2D
+public class Bidivisor : ActivableArea
 {
-    [Export] public bool active = true;
 	public override void _Process(float delta){
         if (active){
             foreach (PhysicsBody2D body in GetOverlappingBodies()){

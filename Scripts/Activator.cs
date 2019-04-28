@@ -1,17 +1,18 @@
 using Godot;
 using System;
 
-public class Activator : Area2D
+public class Activator : ActivableArea
 {
-    Bidivisor link_to_activate;
-    [Export] bool lever_mode = true;
-    [Export] bool active = false;
+    ActivableArea link_to_activate;
 
-    private bool entered = false; 
+    [Export] bool force_active_mode = false;
+    [Export] bool lever_mode = true;
+
+    private bool entered = false;
     public override void _Ready()
     {
-        link_to_activate = (Bidivisor)GetParent().GetChild(GetParent().GetChildren().IndexOf(this) + 1);
-        link_to_activate.active = false;
+        link_to_activate = (ActivableArea)GetParent().GetChild(GetParent().GetChildren().IndexOf(this) + 1);
+        link_to_activate.active = force_active_mode;
     }
     public override void _PhysicsProcess(float delta){
         foreach (PhysicsBody2D body in GetOverlappingBodies()){
@@ -30,6 +31,6 @@ public class Activator : Area2D
 
     public void ChangeState(){
         active = !active;
-        link_to_activate.active = active;
+        link_to_activate.active = !link_to_activate.active;
     }
 }

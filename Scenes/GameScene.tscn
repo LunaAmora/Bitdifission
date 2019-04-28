@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/GameScene.cs" type="Script" id=1]
 [ext_resource path="res://Textures/Grade.png" type="Texture" id=2]
-[ext_resource path="res://Objects/Activator.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Terminal.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Bidivisor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=3]
 
 [node name="GameScene" type="Control"]
 anchor_right = 1.0
@@ -20,46 +16,30 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Level1" type="Node2D" parent="."]
-
-[node name="LevelBlocks" type="Node2D" parent="Level1"]
-
-[node name="Activator" parent="Level1/LevelBlocks" instance=ExtResource( 3 )]
-
-[node name="Terminal" parent="Level1/LevelBlocks" instance=ExtResource( 4 )]
-
-[node name="Bidivisor" parent="Level1/LevelBlocks" instance=ExtResource( 5 )]
-position = Vector2( 900, 540 )
-rotation = -1.5708
-
-[node name="PlayerBlock" parent="Level1" instance=ExtResource( 6 )]
-position = Vector2( 180, 540 )
-rotation = 1.5708
-
 [node name="LevelBounds" type="Node2D" parent="."]
 editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TerrainBlock3" parent="LevelBounds" instance=ExtResource( 7 )]
+[node name="TerrainBlock3" parent="LevelBounds" instance=ExtResource( 3 )]
 position = Vector2( 945, 540 )
 scale = Vector2( 0.5, 18 )
 
-[node name="TerrainBlock4" parent="LevelBounds" instance=ExtResource( 7 )]
+[node name="TerrainBlock4" parent="LevelBounds" instance=ExtResource( 3 )]
 position = Vector2( -15, 540 )
 scale = Vector2( 0.5, 18 )
 
-[node name="TerrainBlock5" parent="LevelBounds" instance=ExtResource( 7 )]
+[node name="TerrainBlock5" parent="LevelBounds" instance=ExtResource( 3 )]
 position = Vector2( 1935, 540 )
 scale = Vector2( 0.5, 18 )
 
-[node name="TerrainBlock6" parent="LevelBounds" instance=ExtResource( 7 )]
+[node name="TerrainBlock6" parent="LevelBounds" instance=ExtResource( 3 )]
 position = Vector2( 960, -15 )
 rotation = 1.5708
 scale = Vector2( 0.5, 33 )
 
-[node name="TerrainBlock7" parent="LevelBounds" instance=ExtResource( 7 )]
+[node name="TerrainBlock7" parent="LevelBounds" instance=ExtResource( 3 )]
 position = Vector2( 960, 1095 )
 rotation = 1.5708
 scale = Vector2( 0.5, 33 )

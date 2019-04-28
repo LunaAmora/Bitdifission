@@ -8,7 +8,6 @@
 [node name="Level1" type="Node2D"]
 
 [node name="LevelBlocks" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Terminal" parent="LevelBlocks" instance=ExtResource( 1 )]
 
@@ -18,6 +17,7 @@ position = Vector2( 1500, 1020 )
 [node name="Bidivisor" parent="LevelBlocks" instance=ExtResource( 2 )]
 position = Vector2( 900, 540 )
 rotation = -1.5708
+active = true
 
 [node name="SolidBlock" parent="LevelBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1860, 540 )
