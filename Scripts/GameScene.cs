@@ -12,6 +12,8 @@ public class GameScene : Control
     public bool reset_scene = false;
     public int gamemode = 0;
 
+    public int change_delay = 0;
+
     public override void _Ready()
     {
         foreach(string str in files_in_directory("res://Scenes/Levels")){
@@ -23,9 +25,7 @@ public class GameScene : Control
 
     public void update_level(){
         terminals_online += 1;
-        if (terminals_online == LevelTerminals.Count){
-            load_level();
-        }
+        change_delay = 60;
     }
 
     public void load_level(bool same_level = false){
@@ -69,10 +69,21 @@ public class GameScene : Control
     }
 
     public override void _Process(float delta){
-        if (Input.IsActionJustPressed("reset_level")) reset_scene = true;
-        if (reset_scene){
-            reset_scene = false;
-            load_level(true);
+        if (Input.IsActionJustPressed("reset_level")){
+            reset_scene = true;
+            change_delay = 30;
+        }
+        if (change_delay == 0){
+            if (reset_scene){
+                reset_scene = false;
+                load_level(true);
+            }
+            if (terminals_online == LevelTerminals.Count){
+                load_level();
+            }
+        }
+        else{
+            change_delay -= 1;
         }
     }
 }

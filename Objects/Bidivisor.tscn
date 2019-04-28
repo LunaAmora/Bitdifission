@@ -1,30 +1,72 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Bidivisor.cs" type="Script" id=1]
 [ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Textures/Bidivider.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Bidiviser_2.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Bidiviser_1.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bidivisor_activate"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 13.9038 ), Vector2( 0, -27.5486 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TerrainBlock3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ), Vector2( 0, 50.6864 ) ]
+}
 
 [node name="Bidivisor" type="Area2D"]
 script = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -12 )
-rotation = 0.785398
-scale = Vector2( 3, 3 )
-shape = SubResource( 1 )
-
-[node name="TerrainBlock" parent="." instance=ExtResource( 2 )]
-position = Vector2( -54, 30 )
-rotation = 1.5708
-scale = Vector2( 0.9, 0.2 )
 
 [node name="TerrainBlock2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 54, 30 )
 rotation = 1.5708
 scale = Vector2( 0.9, 0.2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.24, 0.24 )
+[node name="TerrainBlock3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 10 )
+scale = Vector2( 0.9, 0.2 )
+
+[node name="TerrainBlock" parent="." instance=ExtResource( 2 )]
+position = Vector2( -54, 30 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 0, 13.9038 )
+scale = Vector2( 0.324, 0.324 )
 texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, 29.3262 )
+scale = Vector2( 0.324, 0.324 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -12 )
+rotation = 0.785398
+scale = Vector2( 3, 3 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Bidivisor_activate"
+anims/Bidivisor_activate = SubResource( 1 )

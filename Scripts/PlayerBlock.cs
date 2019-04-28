@@ -9,6 +9,7 @@ public class PlayerBlock : KinematicBody2D
 	
 	public int duplicating = 0;
 	public bool active = true;
+	public bool alive = true;
 	public override void _Ready()
     {
 		if (GlobalPosition.x > 960){
@@ -43,7 +44,7 @@ public class PlayerBlock : KinematicBody2D
 		}
 		public override void _PhysicsProcess(float delta)
 		{
-			if (active){
+			if (active && alive){
 				if (duplicating > 0) duplicating -= 1;
 				if (GetInput()){
 					if (!TestMove(Transform, velocity.Rotate(GetRotation()))){
@@ -51,6 +52,9 @@ public class PlayerBlock : KinematicBody2D
 						jumpTile();
 					}
 				}
+			}
+			else if (((Sprite)GetChild(0)).GetFrame() == 0){
+				((Sprite)GetChild(0)).SetFrame(1);
 			}
 		}
 

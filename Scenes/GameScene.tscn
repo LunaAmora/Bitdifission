@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/GameScene.cs" type="Script" id=1]
-[ext_resource path="res://Textures/Screens/back.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Screens/BackgorundComGrid.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Screens/Grade.png" type="Texture" id=3]
 [ext_resource path="res://Objects/TerrainBlock.tscn" type="PackedScene" id=4]
 
@@ -12,16 +12,13 @@ script = ExtResource( 1 )
 
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 960, 541.652 )
-scale = Vector2( 0.26, 0.26 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0.000244141 )
 
 [node name="Background" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 3 )
 offset = Vector2( 960, 540 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="LevelBounds" type="Node2D" parent="."]
 editor/display_folded = true

@@ -57,6 +57,7 @@
     <Compile Include="Scripts\FusionDetector.cs" />
     <Compile Include="Scripts\GameManager.cs" />
     <Compile Include="Scripts\GameScene.cs" />
+    <Compile Include="Scripts\PlayButton.cs" />
     <Compile Include="Scripts\PlayerBlock.cs" />
     <Compile Include="Scripts\Terminal.cs" />
   </ItemGroup>
