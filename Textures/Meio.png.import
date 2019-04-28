@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white_block.png-96040f00a0fa4cc1ad9d02f352dd33ad.stex"
+path="res://.import/Meio.png-ac97fad9f5b87b7500a7aa5049bed9dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/white_block.png"
-dest_files=[ "res://.import/white_block.png-96040f00a0fa4cc1ad9d02f352dd33ad.stex" ]
+source_file="res://Textures/Meio.png"
+dest_files=[ "res://.import/Meio.png-ac97fad9f5b87b7500a7aa5049bed9dc.stex" ]
 
 [params]
 

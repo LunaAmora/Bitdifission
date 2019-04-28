@@ -11,8 +11,9 @@ public class FusionDetector : Area2D
                     if ((!(((PlayerBlock)body).duplicating > 0) && !(((PlayerBlock)GetParent()).duplicating > 0))){
                         ((GameScene)GetTree().GetRoot().GetChild(0)).reset_scene = true;
                         ((GameScene)GetTree().GetRoot().GetChild(0)).change_delay = 60;
-                        ((PlayerBlock)body).alive = false;
-                        ((PlayerBlock)GetParent()).alive = false;
+                        foreach(PlayerBlock a in ((GameScene)GetTree().GetRoot().GetChild(0)).PlayerNumber){
+                            a.alive = false;
+                        }
                         return;
                     }
                 }

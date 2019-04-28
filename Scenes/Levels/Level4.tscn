@@ -16,7 +16,7 @@ position = Vector2( 420, 540 )
 rotation = -1.5708
 
 [node name="Door" parent="LevelBlocks" instance=ExtResource( 2 )]
-position = Vector2( 720, 536 )
+position = Vector2( 720, 540 )
 moveable = false
 velocity = 1.0
 

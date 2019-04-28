@@ -26,25 +26,27 @@ scale = Vector2( 1, 2 )
 active = true
 
 [node name="Activator2" parent="LevelBlocks" instance=ExtResource( 2 )]
-position = Vector2( 900, 1020 )
+position = Vector2( 780, 1020 )
 rotation = 3.14159
 active = true
+force_active_mode = true
 
 [node name="Door2" parent="LevelBlocks" instance=ExtResource( 3 )]
 position = Vector2( 1320, 780 )
 rotation = 0.785398
 scale = Vector2( 1, 2 )
-active = true
+velocity = -10.0
 
 [node name="Activator3" parent="LevelBlocks" instance=ExtResource( 2 )]
 position = Vector2( 1500, 60 )
 rotation = 0.785398
 scale = Vector2( 0.7, 0.7 )
+active = true
+force_active_mode = true
 
 [node name="Door4" parent="LevelBlocks" instance=ExtResource( 3 )]
-position = Vector2( 615, 480 )
+position = Vector2( 615, 720 )
 scale = Vector2( 1, 2 )
-active = true
 velocity = -10.0
 
 [node name="Activator4" parent="LevelBlocks" instance=ExtResource( 2 )]
@@ -60,7 +62,7 @@ scale = Vector2( 1, 2 )
 velocity = -10.0
 
 [node name="Terminal" parent="LevelBlocks" instance=ExtResource( 4 )]
-position = Vector2( 1620, 420 )
+position = Vector2( 1560, 360 )
 rotation = 2.35619
 scale = Vector2( 0.7, 0.7 )
 

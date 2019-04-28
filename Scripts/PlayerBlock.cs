@@ -10,8 +10,10 @@ public class PlayerBlock : KinematicBody2D
 	public int duplicating = 0;
 	public bool active = true;
 	public bool alive = true;
+	public AnimationPlayer anim;
 	public override void _Ready()
     {
+		anim = (AnimationPlayer)GetNode("Anim");
 		if (GlobalPosition.x > 960){
 			jumpIndex = 1;
 		}
@@ -44,6 +46,7 @@ public class PlayerBlock : KinematicBody2D
 		}
 		public override void _PhysicsProcess(float delta)
 		{
+			int temp = ((Sprite)GetChild(0)).GetFrame();
 			if (active && alive){
 				if (duplicating > 0) duplicating -= 1;
 				if (GetInput()){
@@ -53,8 +56,13 @@ public class PlayerBlock : KinematicBody2D
 					}
 				}
 			}
-			else if (((Sprite)GetChild(0)).GetFrame() == 0){
+			else if (temp == 0 && !active){
 				((Sprite)GetChild(0)).SetFrame(1);
+			}
+			else if (active && !alive && (temp == 0 || temp != 1)){
+				if (!anim.IsPlaying()){
+					anim.Play("Death");
+				}
 			}
 		}
 

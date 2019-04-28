@@ -11,13 +11,13 @@ public class GameScene : Control
     public int terminals_online = 0;
     public bool reset_scene = false;
     public int gamemode = 0;
-
+    [Export] public string levels_folder = "Levels";
     public int change_delay = 0;
 
     public override void _Ready()
     {
-        foreach(string str in files_in_directory("res://Scenes/Levels")){
-            levels.Add((PackedScene)ResourceLoader.Load("res://Scenes/Levels/" + str));
+        foreach(string str in files_in_directory("res://Scenes/" + levels_folder)){
+            levels.Add((PackedScene)ResourceLoader.Load("res://Scenes/" + levels_folder + "/" + str));
         }
         current_level_node = levels[0].Instance();
         AddChildBelowNode(GetChild(0), current_level_node);

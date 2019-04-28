@@ -1,21 +1,22 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Textures/Screens/menu.png" type="Texture" id=1]
-[ext_resource path="res://Textures/playnormal.png" type="Texture" id=2]
-[ext_resource path="res://Textures/playpressed.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/PlayButton.cs" type="Script" id=4]
+[ext_resource path="res://Scripts/Menu.cs" type="Script" id=1]
+[ext_resource path="res://Textures/Screens/menu.png" type="Texture" id=2]
+[ext_resource path="res://Textures/playnormal.png" type="Texture" id=3]
+[ext_resource path="res://Textures/playpressed.png" type="Texture" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 expand = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Play" type="TextureButton" parent="TextureRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -24,9 +25,7 @@ margin_left = -300.0
 margin_top = 60.0
 margin_right = 300.0
 margin_bottom = 300.0
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 3 )
-texture_focused = ExtResource( 3 )
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
 expand = true
-script = ExtResource( 4 )
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureRect/Play" to="." method="_on_Play_pressed"]
