@@ -13,4 +13,3 @@ polygon = PoolVector2Array( -29.9985, 29.9985, 29.9985, 29.9985, -29.9985, -29.9
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708
 texture = ExtResource( 1 )
-
