@@ -15,6 +15,7 @@ position = Vector2( 420, 540 )
 
 [node name="Door" parent="LevelBlocks" instance=ExtResource( 2 )]
 position = Vector2( 720, 536 )
+moveable = false
 velocity = 1.0
 
 [node name="Terminal" parent="LevelBlocks" instance=ExtResource( 3 )]

@@ -43,4 +43,3 @@ scale = Vector2( 0.5, 33 )
 position = Vector2( 960, 1095 )
 rotation = 1.5708
 scale = Vector2( 0.5, 33 )
-

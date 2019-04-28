@@ -6,19 +6,16 @@ public class GameScene : Control
 {
     public List<PlayerBlock> PlayerNumber = new List<PlayerBlock>();
     public List<Terminal> LevelTerminals = new List<Terminal>();
-    
     List<PackedScene> levels = new List<PackedScene>();
     public Node current_level_node;
-    public int current_n = 0;
-    
     public int terminals_online = 0;
+    public bool reset_scene = false;
 
     public override void _Ready()
     {
         foreach(string str in files_in_directory("res://Scenes/Levels")){
             levels.Add((PackedScene)ResourceLoader.Load("res://Scenes/Levels/" + str));
         }
-
         current_level_node = levels[0].Instance();
         AddChild(current_level_node);
     }
@@ -32,19 +29,23 @@ public class GameScene : Control
 
     public void load_level(bool same_level = false){
         terminals_online = 0;
-        current_level_node.QueueFree();
-        foreach(PlayerBlock rip in PlayerNumber){
-            rip.QueueFree();
+        current_level_node.Free();
+        for (int i = PlayerNumber.Count-1; i >=0; i--)
+            {
+                PlayerNumber[i].Free();
+                PlayerNumber.RemoveAt(i);
         }
-        foreach(Terminal rip in LevelTerminals){
-            rip.QueueFree();
+        for (int i = LevelTerminals.Count-1; i >=0; i--)
+            {
+                LevelTerminals.RemoveAt(i);
         }
         if (same_level){
-            current_level_node = levels[current_n].Instance();
+            current_level_node = levels[0].Instance();
             AddChild(current_level_node);
         }
-        else if (levels.Count > current_n){
-            current_level_node = levels[current_n + 1].Instance();
+        else if (levels.Count > 0){
+            levels.RemoveAt(0);
+            current_level_node = levels[0].Instance();
             AddChild(current_level_node);
         }
     }
@@ -64,7 +65,13 @@ public class GameScene : Control
                 files.Add(file);
             }
         }
-
         return files;
+    }
+
+    public override void _Process(float delta){
+        if (reset_scene){
+            reset_scene = false;
+            load_level(true);
+        }
     }
 }
