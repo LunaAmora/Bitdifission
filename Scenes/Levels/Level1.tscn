@@ -25,7 +25,6 @@ rotation = -1.5708
 active = true
 
 [node name="Walls" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="SolidBlock" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 1860, 540 )
@@ -43,12 +42,12 @@ rotation = -0.785397
 scale = Vector2( 15.55, 15.55 )
 
 [node name="SolidBlock2" parent="Walls" instance=ExtResource( 3 )]
-position = Vector2( 480, 180 )
-scale = Vector2( 16, 6 )
+position = Vector2( 480, -180 )
+scale = Vector2( 16, 16 )
 
 [node name="SolidBlock3" parent="Walls" instance=ExtResource( 3 )]
-position = Vector2( 480, 900 )
-scale = Vector2( 16, 6 )
+position = Vector2( 480, 1260 )
+scale = Vector2( 16, 16 )
 
 [node name="PlayerBlock" parent="." instance=ExtResource( 4 )]
 position = Vector2( 180, 540 )

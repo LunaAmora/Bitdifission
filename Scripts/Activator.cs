@@ -30,6 +30,7 @@ public class Activator : ActivableArea
     }
 
     public void ChangeState(){
+        ((Sprite)GetChild(0)).SetFrame(active ? 0 : 1);
         active = !active;
         link_to_activate.active = !link_to_activate.active;
     }

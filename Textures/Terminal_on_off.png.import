@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wall.png-a6a13e8708e749df7842f3726ae39eaa.stex"
+path="res://.import/Terminal_on_off.png-965e27c3ee507a470392ed2f34e19098.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Wall.png"
-dest_files=[ "res://.import/Wall.png-a6a13e8708e749df7842f3726ae39eaa.stex" ]
+source_file="res://Textures/Terminal_on_off.png"
+dest_files=[ "res://.import/Terminal_on_off.png-965e27c3ee507a470392ed2f34e19098.stex" ]
 
 [params]
 
@@ -19,9 +19,9 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
