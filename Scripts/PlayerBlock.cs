@@ -11,6 +11,9 @@ public class PlayerBlock : KinematicBody2D
 	public bool active = true;
 	public override void _Ready()
     {
+		if (GlobalPosition.x > 960){
+			jumpIndex = 1;
+		}
         ((GameScene)GetTree().GetRoot().GetChild(0)).PlayerNumber.Add(this);
     }
 	public bool GetInput()

@@ -10,6 +10,7 @@ public class GameScene : Control
     public Node current_level_node;
     public int terminals_online = 0;
     public bool reset_scene = false;
+    public int gamemode = 0;
 
     public override void _Ready()
     {
@@ -32,13 +33,12 @@ public class GameScene : Control
         current_level_node.Free();
         for (int i = PlayerNumber.Count-1; i >=0; i--)
             {
-                PlayerNumber[i].Free();
                 PlayerNumber.RemoveAt(i);
         }
         for (int i = LevelTerminals.Count-1; i >=0; i--)
             {
                 LevelTerminals.RemoveAt(i);
-        }
+        } 
         if (same_level){
             current_level_node = levels[0].Instance();
             AddChildBelowNode(GetChild(0), current_level_node);
@@ -69,6 +69,7 @@ public class GameScene : Control
     }
 
     public override void _Process(float delta){
+        if (Input.IsActionJustPressed("reset_level")) reset_scene = true;
         if (reset_scene){
             reset_scene = false;
             load_level(true);

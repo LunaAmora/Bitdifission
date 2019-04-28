@@ -45,5 +45,4 @@ position = Vector2( 1440, 480 )
 
 [node name="PlayerBlock" parent="." instance=ExtResource( 3 )]
 position = Vector2( 420, 540 )
-rotation = 1.5708
 collision_layer = 2

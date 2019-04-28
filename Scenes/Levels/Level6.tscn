@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/SolidBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Activator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Terminal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Bidivisor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/PlayerBlock.tscn" type="PackedScene" id=6]
+
+[node name="Level" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="SolidBlock" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 240, 1080 )
+scale = Vector2( 8, 8 )
+
+[node name="SolidBlock2" parent="Walls" instance=ExtResource( 1 )]
+position = Vector2( 780, 1020 )
+rotation = 1.5708
+scale = Vector2( 6, 6 )
+
+[node name="LevelBlocks" type="Node2D" parent="."]
+
+[node name="Activator" parent="LevelBlocks" instance=ExtResource( 2 )]
+position = Vector2( 540, 900 )
+lever_mode = false
+
+[node name="Door" parent="LevelBlocks" instance=ExtResource( 3 )]
+position = Vector2( 240, 780 )
+rotation = 1.5708
+scale = Vector2( 1, 1.3 )
+
+[node name="Terminal2" parent="LevelBlocks" instance=ExtResource( 4 )]
+position = Vector2( 540, 180 )
+
+[node name="Bidivisor2" parent="LevelBlocks" instance=ExtResource( 5 )]
+position = Vector2( 540, 1020 )
+active = true
+
+[node name="PlayerBlock" parent="." instance=ExtResource( 6 )]
+position = Vector2( 540, 900 )

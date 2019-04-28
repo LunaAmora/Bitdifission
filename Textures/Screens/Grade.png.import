@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Grade.png-d721fa3ff6513204d4c64d24dfaf35d9.stex"
+path="res://.import/Grade.png-ee15c94df63c91b796fe83ad40c464e8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Grade.png"
-dest_files=[ "res://.import/Grade.png-d721fa3ff6513204d4c64d24dfaf35d9.stex" ]
+source_file="res://Textures/Screens/Grade.png"
+dest_files=[ "res://.import/Grade.png-ee15c94df63c91b796fe83ad40c464e8.stex" ]
 
 [params]
 
