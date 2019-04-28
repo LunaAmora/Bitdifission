@@ -13,6 +13,7 @@ public class GameScene : Control
     public int gamemode = 0;
     [Export] public string levels_folder = "Levels";
     public int change_delay = 0;
+    public int tuto_delay = 120;
 
     public override void _Ready()
     {
@@ -69,9 +70,15 @@ public class GameScene : Control
     }
 
     public override void _Process(float delta){
+        if (tuto_delay > 0){
+            tuto_delay -= 1;
+        }
         if (Input.IsActionJustPressed("reset_level")){
             reset_scene = true;
             change_delay = 30;
+        }
+        if (Input.IsActionJustPressed("ui_cancel")){
+            ((Control)GetChild(GetChildren().Count - 1)).Visible = !((Control)GetChild(GetChildren().Count - 1)).IsVisible();
         }
         if (change_delay == 0){
             if (reset_scene){
@@ -85,5 +92,14 @@ public class GameScene : Control
         else{
             change_delay -= 1;
         }
+    }
+
+    public override void _UnhandledInput(InputEvent @event){
+        if (@event is InputEventKey eventKey && tuto_delay == 0){
+            if (eventKey.Pressed){}
+                if (((Control)GetChild(GetChildren().Count - 2)).IsVisible()){
+                    ((Control)GetChild(GetChildren().Count - 2)).Hide();
+                }
+            }
     }
 }

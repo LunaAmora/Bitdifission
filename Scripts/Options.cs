@@ -3,19 +3,13 @@ using System;
 
 public class Options : Control
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-        
+    private void _on_Quit_pressed(){
+        GetTree().ChangeScene("res://Scenes/Menu.tscn");
     }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    private void _on_Reset_pressed()
+    {
+        ((GameScene)GetTree().GetRoot().GetChild(0)).reset_scene = true;
+        ((GameScene)GetTree().GetRoot().GetChild(0)).change_delay = 30;
+        Hide();
+    }
 }

@@ -11,7 +11,20 @@ public class Menu : Control
             GetTree().Quit();
         }
     }
+	private void _on_Button_pressed(){
+    	GetTree().Quit();
+	}
+	private void _on_Button2_pressed()
+	{
+    	GetTree().ChangeScene("res://Scenes/Credits.tscn");
+	}
 }
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Menu.cs" type="Script" id=1]
 [ext_resource path="res://Textures/Screens/menu.png" type="Texture" id=2]
 [ext_resource path="res://Textures/playnormal.png" type="Texture" id=3]
 [ext_resource path="res://Textures/playpressed.png" type="Texture" id=4]
+[ext_resource path="res://batmfa__.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 5 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -28,4 +33,21 @@ margin_bottom = 300.0
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
 expand = true
+
+[node name="Button" type="Button" parent="."]
+margin_top = 960.0
+margin_right = 240.0
+margin_bottom = 1080.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 1560.0
+margin_top = 960.0
+margin_right = 1887.0
+margin_bottom = 1080.0
+custom_fonts/font = SubResource( 1 )
+text = "cREDITS"
 [connection signal="pressed" from="TextureRect/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

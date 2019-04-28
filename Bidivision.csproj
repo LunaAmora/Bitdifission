@@ -53,6 +53,7 @@
     <Compile Include="Scripts\ActivableArea.cs" />
     <Compile Include="Scripts\Activator.cs" />
     <Compile Include="Scripts\Bidivisor.cs" />
+    <Compile Include="Scripts\Credits.cs" />
     <Compile Include="Scripts\Door.cs" />
     <Compile Include="Scripts\FusionDetector.cs" />
     <Compile Include="Scripts\GameManager.cs" />

@@ -1,0 +1,6 @@
+C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\bin\Debug\Bidivision.dll
+C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\bin\Debug\Bidivision.pdb
+C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Debug\Bidivision.csprojAssemblyReference.cache
+C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Debug\Bidivision.csproj.CoreCompileInputs.cache
+C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Debug\Bidivision.dll
+C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Debug\Bidivision.pdb
