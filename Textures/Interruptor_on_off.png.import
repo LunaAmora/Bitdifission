@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wall.png-a6a13e8708e749df7842f3726ae39eaa.stex"
+path="res://.import/Interruptor_on_off.png-07f010609eb433b9df82825a3af603c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Wall.png"
-dest_files=[ "res://.import/Wall.png-a6a13e8708e749df7842f3726ae39eaa.stex" ]
+source_file="res://Textures/Interruptor_on_off.png"
+dest_files=[ "res://.import/Interruptor_on_off.png-07f010609eb433b9df82825a3af603c3.stex" ]
 
 [params]
 
@@ -19,9 +19,9 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
-flags/mipmaps=true
+flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

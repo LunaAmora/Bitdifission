@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Activator.cs" type="Script" id=1]
-[ext_resource path="res://Textures/Interruptor.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Interruptor_on_off.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,6 +12,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.244, 0.244 )
 texture = ExtResource( 2 )
 offset = Vector2( 12.8298, 135.162 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 2.5, 2.5 )

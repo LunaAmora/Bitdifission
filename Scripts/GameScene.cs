@@ -17,7 +17,7 @@ public class GameScene : Control
             levels.Add((PackedScene)ResourceLoader.Load("res://Scenes/Levels/" + str));
         }
         current_level_node = levels[0].Instance();
-        AddChild(current_level_node);
+        AddChildBelowNode(GetChild(0), current_level_node);
     }
 
     public void update_level(){
@@ -41,12 +41,12 @@ public class GameScene : Control
         }
         if (same_level){
             current_level_node = levels[0].Instance();
-            AddChild(current_level_node);
+            AddChildBelowNode(GetChild(0), current_level_node);
         }
         else if (levels.Count > 0){
             levels.RemoveAt(0);
             current_level_node = levels[0].Instance();
-            AddChild(current_level_node);
+            AddChildBelowNode(GetChild(0), current_level_node);
         }
     }
 
