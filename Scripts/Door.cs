@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class Door : ActivableArea
 {
@@ -9,23 +8,26 @@ public class Door : ActivableArea
     int dir = 1;
     bool blocked = false;
     bool moving = false;
-    public override void _Ready()
+
+    public override void _Ready(){}
+
+    public override void _Process(float delta)
     {
-        
-    }
-    public override void _Process(float delta){
-        if (!moveable){
+        if (!moveable)
+        {
             GetNode("Sprite").Set("visible", active);
-            ((KinematicBody2D)GetNode("ignore")).SetCollisionLayer(active ? 1 : 0);
+            ((KinematicBody2D)GetNode("ignore")).CollisionLayer = (uint) (active ? 1 : 0);
         }
-        else if (active || moving){
-            Vector2 pos = GetGlobalPosition();
+        else if (active || moving)
+        {
+            Vector2 pos = GlobalPosition;
             MoveLocalY(15 * dir);
-            foreach (KinematicBody2D body in GetOverlappingBodies()){
+            foreach (KinematicBody2D body in GetOverlappingBodies())
+            {
                 dir *= -1;
                 active = false;
                 moving = false;
-                SetGlobalPosition(pos);
+                GlobalPosition = pos;
                 MoveLocalY(30 * dir);
                 return;
             }

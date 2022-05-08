@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class Bidivisor : ActivableArea
 {
@@ -10,18 +9,25 @@ public class Bidivisor : ActivableArea
         if (active) anim.Play();
         else anim.PlayBackwards();
     }
-	public override void _Process(float delta){
-        if (active){
-            if (anim.CurrentAnimationPosition == 0){
+
+	public override void _Process(float delta)
+    {
+        if (active)
+        {
+            if (anim.CurrentAnimationPosition == 0)
+            {
                 anim.Play();
             }
-            foreach (PhysicsBody2D body in GetOverlappingBodies()){
-                if (body.HasMethod("GetInput")){
+            foreach (PhysicsBody2D body in GetOverlappingBodies())
+            {
+                if (body.HasMethod("GetInput"))
+                {
                     ((PlayerBlock)body).SplitBlock(this);
                 }
             }
         }
-        else if (anim.CurrentAnimationPosition == 1){
+        else if (anim.CurrentAnimationPosition == 1)
+        {
             anim.PlayBackwards();
         }
     }

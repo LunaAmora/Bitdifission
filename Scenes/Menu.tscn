@@ -48,6 +48,7 @@ margin_right = 1887.0
 margin_bottom = 1080.0
 custom_fonts/font = SubResource( 1 )
 text = "cREDITS"
+
 [connection signal="pressed" from="TextureRect/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

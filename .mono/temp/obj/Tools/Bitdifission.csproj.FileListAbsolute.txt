@@ -1,6 +1,0 @@
-C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\bin\Tools\Bitdifission.dll
-C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\bin\Tools\Bitdifission.pdb
-C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Tools\Bitdifission.csprojAssemblyReference.cache
-C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Tools\Bitdifission.csproj.CoreCompileInputs.cache
-C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Tools\Bitdifission.dll
-C:\Users\Frank\Documents\Godot\Bidivision\.mono\temp\obj\Tools\Bitdifission.pdb
